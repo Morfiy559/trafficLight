@@ -1,4 +1,4 @@
-# vue
+# Traffic light
 
 ## Project setup
 ```
