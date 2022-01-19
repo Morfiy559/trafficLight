@@ -13,7 +13,8 @@ export default {
     return{
       color:'Green',
       counter:localStorage.getItem('counter'),
-      isBlink:false
+      isBlink:false,
+      interval:null
     }
   },
   mounted() {
@@ -21,11 +22,12 @@ export default {
     localStorage.color='green';
     setTimeout(() => {
       localStorage.counter='10';
+      clearInterval(this.interval)
       this.$router.push({name:'red'})
     }, 15000-sec);
-    setInterval(() => {
+    this.interval = setInterval(() => {
       localStorage.counter=String(this.counter--);
-      if(Number(this.counter)==3)this.isBlink=true;
+      if(Number(this.counter)===3)this.isBlink=true;
     }, 1000);
   }
 }
